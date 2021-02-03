@@ -1,0 +1,10 @@
+.CardList{
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+}
+
+.card{
+    border-style: dashed;
+    border: 1px dashed black;
+}

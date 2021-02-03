@@ -1,0 +1,16 @@
+.Card{
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 40px;
+    padding-bottom: 40px;
+    border: 5px solid rgb(238, 211, 136);
+    border-radius: 10px;
+
+}
+
+img{
+    border-radius: 10px;
+}
