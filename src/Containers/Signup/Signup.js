@@ -1,30 +1,31 @@
 import React, { Component } from "react";
 import { Route, Link, Switch } from 'react-router-dom';
 
-import './Login.css';
+import './Signup.css';
 
 import profile from '../../Assets/Images/profile.jpeg'
 import MainPage from '../MainPage/MainPage'
-import Signup from '../Signup/Signup'
+import Login from '../Login/Login'
 
-import axios from 'axios';
 
-class Login extends Component{
+const axios = require('axios').default;
+
+class Signup extends Component{
     state = {
         username: '',
         password: ''
     }
-
-    handleLogin() {
-        
+    handleSignup() {
         const username = this.state.username;
         const password = this.state.password;
+
+
 
         axios.post('/user', {
             username: username,
             password: password,
           })
-          .then(response => {
+          .then(function (response) {
             console.log(response);
             if (response.status === 200) {
                 //TODO: 可以删掉
@@ -44,32 +45,27 @@ class Login extends Component{
     render(){
         return (
             <div >
-                <section className='login'>
-                    <h2>Login Form</h2>
+                <section className='sign-up'>
+                    <h2>Signup Form</h2>
 
-                    <form>
+                    <form action="/action_page.php" method="post">
                         <div className="imgcontainer">
                             <img src={profile} alt="Avatar" className="avatar" />
-                        </div>
-                        <div className="sign-up">
-                            <Link to='/signup'>sign up here!</Link>
-                          
-                        </div>
-                        
+                        </div> 
                         
                         <div class="container">
                             <label for="uname"><b>Username</b></label>
-                            <input type="text" value={this.state.username} onChange={(event) => this.setState({username: event.target.value})} placeholder="Enter Username" name="uname" required/>
+                            <input value={this.state.username} onChange={(event) => this.setState({username: event.target.value})} type="text" placeholder="Enter Username" name="uname" required/>
 
                             <label for="psw"><b>Password</b></label>
-                            <input type="password" value={this.state.password} onChange={(event) => this.setState({password: event.target.value})} placeholder="Enter Password" name="psw" required/>
+                            <input value={this.state.password} onChange={(event) => this.setState({password: event.target.value})} type="password" placeholder="Enter Password" name="psw" required/>
                                 
-                            <button onClick={this.handleLogin} type="submit" className='loginbutton'>Login</button>
+                            <button type="submit" onClick={this.handleSignup} className='loginbutton'> Sign up and Login</button>
                             
                         </div>
 
                         <div class="container">
-                            <button type="button" class="cancelbtn" className='loginbutton'><Link to='/mainpage'>Skip</Link></button>
+                            <button type="button" class="cancelbtn" className='loginbutton'><Link to='/'>Cancel</Link></button>
                         </div>
                     </form>
                 </section>
@@ -77,8 +73,7 @@ class Login extends Component{
 
 
                 <Route path="/mainpage" exact component={MainPage} />
-                <Route path="/signup" exact component={Signup} />
-
+                <Route path="/" exact component={Login} />
 
 
                 
@@ -88,4 +83,4 @@ class Login extends Component{
     }
 }
 
-export default Login
+export default Signup

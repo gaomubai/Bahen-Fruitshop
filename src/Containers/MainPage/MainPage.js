@@ -1,18 +1,19 @@
 import React, { Component } from "react";
+import { Route, Link } from 'react-router-dom';
+
 import './MainPage.css';
 
 import Banner from '../../Components/Banner/Banner'
 import CardList from '../../Components/CardList/CardList'
-import Login from '../Login/Login'
 
 class MainPage extends Component{
 
     render(){
         return(
-            <div>
+            <div className="MainPage">
+                
                 <Banner />
                 <CardList />
-                <Login />
             </div>
             
         )
