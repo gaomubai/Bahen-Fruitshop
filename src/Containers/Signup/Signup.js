@@ -21,7 +21,7 @@ class Signup extends Component{
 
 
 
-        axios.post('/user', {
+        axios.post('/api/user/register', {
             username: username,
             password: password,
           })

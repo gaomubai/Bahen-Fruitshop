@@ -20,7 +20,7 @@ class Login extends Component{
         const username = this.state.username;
         const password = this.state.password;
 
-        axios.post('/user', {
+        axios.post('/api/user/login', {
             username: username,
             password: password,
           })
